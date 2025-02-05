@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": ["string-similarity"],
             "outputPath": "dist/fyle",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -28,22 +29,17 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",

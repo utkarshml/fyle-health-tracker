@@ -102,7 +102,7 @@ export class TrackComponent {
   }
   
   goToAbout(path : string) : void{
-    this.router.navigate([`/trackData/${path}`])
+    this.router.navigate([`/trackData`, path]);
   }
 
 }

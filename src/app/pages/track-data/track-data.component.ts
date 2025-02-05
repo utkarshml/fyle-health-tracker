@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartsComponent } from '../../components/charts/charts.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LocalStorageService, LocalStorageServiceType } from '../../services/local-storage.service';
 import { CommonModule } from '@angular/common';
 

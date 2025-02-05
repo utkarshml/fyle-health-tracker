@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as stringSimilarity from 'string-similarity';
+import stringSimilarity from 'string-similarity';
 
 @Injectable({
   providedIn: 'root'

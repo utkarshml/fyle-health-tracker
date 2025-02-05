@@ -7,6 +7,8 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     {path: 'track', component: TrackComponent},
     // {path : 'track/data' , component : TrackDataComponent   },
-    { path: 'trackData/:id', component: TrackDataComponent },
+    { path: 'trackData/:id', component: TrackDataComponent, 
+    
+     },
     { path: '**', redirectTo: '' }
 ];
