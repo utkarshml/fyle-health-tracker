@@ -1,7 +1,7 @@
   <!-- Form Section -->
-  <div class="grid  px-5 grid-cols-1 mt-[10rem] md:grid-cols-2  gap-5  lg:px-8">
+  <div class="grid  px-5 grid-cols-1 mt-[10rem] md:grid-cols-2  gap-4  lg:px-8">
     <form [formGroup]="workoutForm"  (ngSubmit)="onSubmit()" class="space-y-8   sm:p-2">
-      <div class="mt-6">
+      <div class="mt-6 mb-6">
         <label class="block ml-4 text-gray-700 mb-2">Name</label>
         <input name="name" [ngModel]="name"  id="name" formControlName="name"  type="text" placeholder="Enter your name" class="input border-[#887ee6] focus:border-[#5228E7] focus:outline-none border-1 w-full h-[3rem] px-4 rounded-full">
         <div *ngIf="workoutForm.get('name')?.invalid && workoutForm.get('name')?.touched">
@@ -11,7 +11,7 @@
       </div>
 
       <div class="grid  grid-cols-2 gap-4">
-        <div class="w-full ">
+        <div class="w-full mb-6 ">
           <label class="block text-gray-700 mb-2">Workout Type</label>
           <div class="relative">
             <select formControlName="workoutType" [(ngModel)]="selectedWorkout"  class="select appearance-none focus:border-[#5228E7] focus:outline-none   border-[#887ee6]] border-1 w-full h-[3rem] px-4 rounded-full" >
