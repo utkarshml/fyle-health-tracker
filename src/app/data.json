@@ -1,0 +1,13 @@
+[{
+  "name" : "Utkarsh",
+  "workoutType" : ["Cardio", "Strength Training", "Yoga", "Pilates", "Crossfit", "Zumba","Rest"],
+  "workoutTime" : [39, 20, 39, 39, 39, 39, 39],
+  "weeklyWorkoutTime" : [0, 39, 234, 39, 9, 39, 39]
+},
+{
+  "name" : "Ankit",
+  "workoutType" : ["Cardio", "Strength Training", "Yoga", "Pilates", "Crossfit", "Zumba","Rest"],
+  "workoutTime" : [23,89,23,23,23,23,23],
+  "weeklyWorkoutTime" : [0, 23, 234, 23, 9, 23, 23]
+}
+]

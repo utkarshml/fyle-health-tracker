@@ -1,0 +1,71 @@
+<div class=" mt-[7rem] p-4">
+<div class="filter-bar gap-2    px-10  flex  lg:flex-row flex-col p-2 items-center justify-between bg-[#5128e74b]  w-full h-auto rounded-xl  lg:rounded-full ">
+   <div class="search py-2  lg:w-1/3 w-full relative">
+        <input [(ngModel)]="searchTerm" (input)="onSearch()" type="text" placeholder="Search" class="input border-[#D9D9D9] focus:border-[#5228E7] focus:outline-none border-1 w-full h-[2.5rem] px-4 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5228E7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide top-7 -translate-y-1/2 absolute right-5 lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+   </div> 
+   <div class=" flex justify-center flex-wrap  w-fit lg:gap-10 gap-4  h-full items-center ">
+    <div class="relative">
+        <span class="absolute text-[10px] left-4 top-1 ">Workout Type</span>
+      <select (change)="filteredWorkout()" [(ngModel)]="selectedWorkout" class="select appearance-none text-sm focus:border-[#5228E7] focus:outline-none   border-[#D9D9D9] border-1 w-[12rem] h-[2.5rem] px-4 pt-3  rounded-full" >
+
+        <option selected disabled value="">Select</option>
+        <option selected  value="All">All</option>
+        <option [value]='workout' *ngFor="let workout of workoutType">{{workout}}</option>
+       
+      </select>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5228E7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide absolute top-1/2 -translate-y-1/2 right-4   lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+
+    </div>
+    <div class="relative">
+        <span class="absolute text-[10px] left-4 top-1 ">Workout Type</span>
+
+        <select (change)="sortFiltered()" [(ngModel)]="selectedSort" class="select appearance-none text-sm pt-3 focus:border-[#5228E7] focus:outline-none   border-[#D9D9D9] border-1  w-[12rem] h-[2.5rem] px-4 rounded-full">
+          <option selected value="">Select</option>
+          <option value="1">All</option>
+          <option value="2">Top diligent</option>
+          <option value="3">Top Lazy</option>
+        </select>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5228E7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide absolute top-1/2 -translate-y-1/2 right-4   lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+  
+      </div>
+  </div>
+</div>
+<div  class="items min-h-[80vh] flex-wrap justify-center   flex gap-6 w-full p-5">
+    <div *ngFor="let track of paginatedItems"  (click)="goToAbout(track.name)" class=" cursor-pointer bg-gradient-to-r from-[#5228E7] to-[#AAAAE4] p-4 rounded-lg w-full md:w-64 shadow-lg lg:w-64 h-[14rem] transition-transform hover:scale-105" >
+        <div class="text-gray-100 px-4 text-xl font-semibold">{{track.name}}</div>
+        <div class="flex flex-wrap pt-2 ">
+          <span *ngFor=" let workout of getLabel(track.workoutTime) " class="text-[#5228E7] text-[13px] mx-2 bg-[#AAAAE4] px-1.5 py-0.5 rounded-full flex   mt-1">{{workout}}</span>
+        </div>
+        <div class="flex justify-between items-center mt-4">
+          <span class="text-white font-medium">{{getSum(track.workoutTime)}}<br/><span class="text-[16px] font-normal">Minuts</span></span>
+          <div class="text-right">
+            <span class="text-black font-bold text-lg">{{getTodayTotalWorkouts(track.workoutTime)}}</span>
+            <div class="text-gray-700 text-xs">Workouts</div>
+          </div>
+        </div>
+      </div>
+  
+</div>
+
+<div class="flex items-center justify-center space-x-4 p-2 bg-transparent border w-fit m-auto border-purple-600 rounded-full">
+    <!-- Previous Button -->
+    <button 
+      (click)="changePage(currentPage - 1)" 
+      [disabled]="currentPage === 1"
+      class="px-4 py-2 rounded-full  bg-gradient-to-r from-[#5228E7] to-[#AAAAE4] text-white transition hover:scale-105 disabled:opacity-50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+  
+    <span class=" text-[#5228E7] text-lg font-semibold">{{ currentPage }} of {{getTotalPage()}}</span>
+  
+    <!-- Next Button -->
+    <button 
+      (click)="changePage(currentPage + 1)" 
+      [disabled]="currentPage === getTotalPage()"
+      class="px-4 py-2 rounded-full bg-gradient-to-r from-[#5228E7] to-[#AAAAE4] text-white transition hover:scale-105 disabled:opacity-50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </div>
+  
+</div>

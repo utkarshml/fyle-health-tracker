@@ -1,0 +1,40 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-[11rem] md:gap-8 p-0 sm:p-4 md:p-8">
+  <div class="bg-white lg:col-span-2 md:col-span-3 c rounded-lg  md:p-8">
+    <div class="cards  flex flex-wrap lg:flex-nowrap p-8  justify-around  gap-8">
+   
+        <div class=" flex cursor-pointer justify-between items-center   bg-gradient-to-r  bg-[#AAAAE4] p-6 rounded-lg shadow-lg w-full h-[14rem] transition-transform hover:scale-105" (click)="showWorkout()">
+            <div class="content">
+                <h1 class="text-white text-start w-full text-5xl">{{getTotalWorkoutInOneDay}}</h1>
+                <span class="text-[rgb(82,40,231)]">Workouts (Today)</span>
+
+            </div>
+         <div [style.background]=" 'conic-gradient(from 0deg, #5228E7 0deg, #5228E7 ' + getDegree + 'deg, #AAAAE4 ' + getDegree + 'deg 360deg)'" class="polarChat  flex justify-center items-center  w-[8rem] h-[8rem]   border-none rounded-full">
+            <div class="progress flex justify-center items-center bg-white w-[75%] h-[75%] rounded-full">
+               <span class="text-[#5228E7] text-xl ">
+                {{getPercentage.toFixed(1)}}%
+               </span> 
+            </div>
+         </div>
+          </div>
+
+          <div class=" flex relative cursor-pointer justify-between items-center   bg-gradient-to-r  bg-[#AAAAE4] p-6 rounded-lg shadow-lg w-full h-[14rem] transition-transform hover:scale-105" (click)="showDays()">
+            <span class="text-[#5228e7] text-lg uppercase absolute top-5 font-bold right-5">{{totalTodayTime}} MIN</span>
+            <div class="content">
+                <h1 class="text-white text-start w-full text-5xl">{{totalWeekTime}}</h1>
+                <span class="text-[#5228e7]">Workout Time (Week)</span>
+
+            </div>
+   
+          </div>
+    </div>
+    <div  class="charts ">
+     
+        <app-charts  [label]="workoutType" title="min" [data]="getTodayData || []"></app-charts>
+        <app-charts [label]="daysOfWeek" title="min" [data]="getWeekData || []"></app-charts>
+    
+    </div>
+  </div>
+  <div class="bg-white col-span-1 lg:block hidden rounded-lg h-fit p-4 md:p-8">
+    <img src="assets/medical.png" alt="Medical"/>
+  </div>
+</div>

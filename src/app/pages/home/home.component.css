@@ -1,0 +1,14 @@
+@keyframes float {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(-20px); }
+  }
+  .animate-float {
+    animation: float 2s infinite ease-in-out;
+  }
+  @keyframes pules {
+    0%, 100% { scale:  0; }
+    50% {  scale: 1; }
+  }
+  .animate-pules {
+    animation: pules 2s infinite ease-in-out;
+  }
